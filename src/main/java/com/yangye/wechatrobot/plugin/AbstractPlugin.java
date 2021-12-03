@@ -15,7 +15,7 @@ public abstract class AbstractPlugin implements Plugin {
      * @return
      */
     @Override
-    public boolean support(PluginCmd cmd) {
+    public boolean support(WxMessage fromMessage) {
         throw new UnsupportedOperationException();
     }
 
@@ -24,8 +24,8 @@ public abstract class AbstractPlugin implements Plugin {
      * 子类实现
      */
     @Override
-    public void apply(PluginCmd cmd, WxMessage fromMessage) {
-        if (support(cmd)) {
+    public void apply(WxMessage fromMessage) {
+        if (support(fromMessage)) {
             reply(fromMessage);
         }
     }

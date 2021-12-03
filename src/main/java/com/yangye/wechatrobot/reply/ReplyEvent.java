@@ -7,5 +7,7 @@ package com.yangye.wechatrobot.reply;
  * @date: 2021/11/26 15:06
  */
 public enum ReplyEvent {
-    SendGroupMsgAndAt
+    SendTextMsg,
+    SendGroupMsgAndAt,
+    SendEmojiMsg,
 }

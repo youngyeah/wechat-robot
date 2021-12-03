@@ -26,5 +26,5 @@ public class Horse {
     /**
      * 距离
      */
-    private double distance;
+    private int distance;
 }

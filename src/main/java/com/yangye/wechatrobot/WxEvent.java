@@ -9,5 +9,6 @@ package com.yangye.wechatrobot;
 public enum WxEvent {
     EventLogin,
     EventGroupMsg,
-    EventFriendMsg
+    EventSendOutMsg,
+    EventFriendMsg,
 }

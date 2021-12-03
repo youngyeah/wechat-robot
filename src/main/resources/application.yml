@@ -1,2 +1,6 @@
 server:
-  port: 9999
+  port: 5001
+
+logging:
+  level:
+    org.apache.http: DEBUG

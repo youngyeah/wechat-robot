@@ -4,6 +4,7 @@ import com.yangye.wechatrobot.dispatcher.EventHandlerDispatcher;
 import com.yangye.wechatrobot.dispatcher.WxMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +27,10 @@ public class RobotApiController {
     @PostMapping("/wechat")
     public void wechat(@RequestBody WxMessage wxMessage) {
         eventHandlerDispatcher.dispatch(wxMessage);
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "test";
     }
 }

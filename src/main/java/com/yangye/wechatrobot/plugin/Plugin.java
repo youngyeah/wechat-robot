@@ -10,9 +10,9 @@ import com.yangye.wechatrobot.dispatcher.WxMessage;
  */
 public interface Plugin {
 
-    boolean support(PluginCmd cmd);
+    boolean support(WxMessage fromMessage);
 
-    void apply(PluginCmd cmd, WxMessage fromMessage);
+    void apply(WxMessage fromMessage);
 
     void reply(WxMessage fromMessage);
 }

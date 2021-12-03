@@ -1,6 +1,8 @@
 package com.yangye.wechatrobot.plugin.horserace;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,7 +31,20 @@ public class RaceHolder {
         horse.setHorseName(memberName);
         horse.setHorseOwner(memberWxid);
         horse.setDistance(0);
-        horse.setHorseAvatar("");
         race.addHorse(horse);
+    }
+
+    public int leftToStartRace(String groupWxid) {
+        Race race = this.get(groupWxid);
+        return race.left();
+    }
+
+    public void clear(String groupWxid) {
+        races.remove(groupWxid);
+    }
+
+    public boolean hasJoinedRace(String groupWxid, String memberWxid) {
+        Race race = this.get(groupWxid);
+        return race.hasJoinedRace(memberWxid);
     }
 }

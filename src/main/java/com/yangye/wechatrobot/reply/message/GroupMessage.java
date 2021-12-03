@@ -1,4 +1,4 @@
-package com.yangye.wechatrobot.reply;
+package com.yangye.wechatrobot.reply.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -18,7 +18,7 @@ import lombok.Data;
  * @date: 2021/11/26 15:04
  */
 @Data
-public class ReplyMessage {
+public class GroupMessage extends BaseMessage{
 
     @JsonProperty("event")
     private String event;

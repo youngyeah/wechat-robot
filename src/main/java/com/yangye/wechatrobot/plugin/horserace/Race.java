@@ -1,8 +1,10 @@
 package com.yangye.wechatrobot.plugin.horserace;
 
+import cn.hutool.core.util.StrUtil;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -14,6 +16,11 @@ import java.util.List;
 @Data
 public class Race {
 
+    public static final int CAN_START_RACE_COUNT = 3;
+
+    public static final List<String> avatars = Arrays.asList("[猪头]", "[呲牙]",
+            "[白眼]", "[可怜]", "[生病]");
+
     private String wxGroupId;
 
     private List<Horse> horses;
@@ -22,6 +29,19 @@ public class Race {
         if (horses == null) {
             horses = new ArrayList<>();
         }
+        horse.setHorseAvatar(avatars.get(horses.size()));
         this.horses.add(horse);
     }
+
+    public int left() {
+        if (horses == null) {
+            return CAN_START_RACE_COUNT;
+        }
+        return CAN_START_RACE_COUNT - horses.size();
+    }
+
+    public boolean hasJoinedRace(String memberWxid) {
+        return horses.stream().anyMatch(v -> StrUtil.equals(v.getHorseOwner(), memberWxid));
+    }
+
 }
